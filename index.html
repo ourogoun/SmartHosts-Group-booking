@@ -3,19 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartHosts Booking</title>
+  <title>SmartHosts | Hotel Booking</title>
   <script src="https://staygrid.com/js/hapi/web.js?v=2n520250612"></script>
   <style>
-    body {
-      font-family: sans-serif;
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-y: auto;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f6fa;
+      color: #333;
       text-align: center;
-      padding: 2rem;
     }
+
+    h1 {
+      color: #0077cc;
+      margin: 2rem 0 1.5rem;
+    }
+
     #webDiv {
+      max-width: 1000px;
+      margin: 0 auto;
+      border: none;
+      min-height: 900px; /* Increased height for full visibility */
+      overflow: hidden;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      min-height: 600px;
     }
+
     #webDiv.loaded {
       opacity: 1;
     }
@@ -23,7 +39,7 @@
 </head>
 <body>
   <h1>Book Your Stay with SmartHosts</h1>
-  <div id="webDiv" style="border-width: 0;"></div>
+  <div id="webDiv"></div>
 
   <script>
     const hlWebEngine = new HotelogixWeb();
@@ -38,6 +54,7 @@
         document.getElementById("webDiv").classList.add("loaded");
       }, 800);
     }
+
     hlWebEngine.run(drawEngine);
   </script>
 </body>
